@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
+    
+    <style>
+      
+        .bottom-price {
+            color: gold;
+            position: relative;
+            left: 260px;
+            top: 180px;
+        }
+        
+        .price-size {
+            font-size: 60px;
+            font-weight: bold;
+        }
+        
+        .price-unit {
+            position: relative;
+            left: 90px;
+        }
+        
+        a.apt-name {
+            font-size: 36px;
+            font-weight: bolder;
+            color: black;
+            text-decoration: underline;
+        }
+        
+        .apt-des {
+            color: lightgray;
+        }
+        
+        .button-pos {
+            left: 1000px;
+        }
+    
+    </style>
+
+</head>
+    
+<body onload = "show()">
+    
+<div class="btn-group button-pos">
+<button type="button" class="btn btn-default" id="price" onclick="price()">Price</button>
+<button type="button" class="btn btn-default" id="popu" onclick="popularity()">Popularity</button>
+</div>
+    
+<div class="container">
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-7">
+            <img id = "img0" src=""></img>
+        </div>
+         <div class="col-xs-12 col-sm-5 ">
+             <a class = "apt-name" id = "name0" href="#"></a>
+             <p class = "apt-des" ><span id="city0"></span><br><span id="state0"></span></p>
+             <p class="bottom-price">From <span class="price-size" id="price0"></span><br>
+                 <span class="price-unit">USD/Month</span></p>
+        </div>
+    </div>
+    
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-7">
+            <img id = "img1" src=""></img>
+        </div>
+         <div class="col-xs-12 col-sm-5">
+            <a class = "apt-name" id = "name1" href="#"></a>
+             <p class = "apt-des" ><span id="city1"></span><br><span id="state1"></span></p>
+             <p class="bottom-price">From <span class="price-size" id="price1"></span><br>
+                 <span class="price-unit">USD/Month</span></p>
+        </div>
+    </div>
+    
+    <div class="row row-content">
+        <div class="col-xs-12 col-sm-7">
+            <img id = "img2" src=""></img>
+        </div>
+         <div class="col-xs-12 col-sm-5">
+            <a class = "apt-name" id = "name2" href="#"></a>
+            <p class = "apt-des" ><span id="city2"></span><br><span id="state2"></span></p>
+             <p class="bottom-price">From <span class="price-size" id="price2"></span><br>
+                 <span class="price-unit">USD/Month</span></p>
+        </div>
+    </div>
+    
+    <div class="row row-content">
+       <div class="col-xs-12 col-sm-7">
+           <img id = "img3" src=""></img>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+            <a class = "apt-name" id = "name3" href="#"></a>
+            <p class = "apt-des" ><span id="city3"></span><br><span id="state3"></span></p>
+             <p class="bottom-price">From <span class="price-size" id="price3"></span><br>
+                 <span class="price-unit">USD/Month</span></p>
+        </div>
+    </div>
+
+    <div class="row row-content">
+       <div class="col-xs-12 col-sm-7">
+           <img id = "img4" src=""></img>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+            <a class = "apt-name" id = "name4" href="#"></a>
+            <p class = "apt-des" ><span id="city4"></span><br><span id="state4"></span></p>
+             <p class="bottom-price">From <span class="price-size" id="price4"></span><br>
+                 <span class="price-unit">USD/Month</span></p>
+        </div>
+    </div>
+    
+    
+</div> 
+
+<div class="container">
+  <ul class="pagination">
+    <li class="active"><a href="#">1</a></li>
+    <li ><a href="page1.html">2</a></li>
+    <li ><a href="page2.html">3</a></li>
+  </ul>
+</div>
+
+<script>
+/*
+function pagechange(i) {
+    var j;
+    for(j = 0; j < $(".pagination").children().length;j++) {
+        $("#page"+j).removeClass("active");
+        
+        if (i == j) {
+            $("#page"+i).addClass("active");
+        }
+    }
+}*/
+function popularity(){
+	$(function(){
+		$.getJSON( "./apartment.json", function( data ) {
+		console.log(data);
+		
+
+		data.apartments.sort(function(a,b) {
+			return parseFloat(b.popularity) - parseFloat(a.popularity);
+		});
+
+		var i;
+			for(i = 0; i < data.apartments.length;i++) {
+				$("#name" + i).text(data.apartments[i].name);
+                $("#name" + i).attr("href","details/" + data.apartments[i].name + ".html");
+                $("#img" + i).attr("src",data.apartments[i].image);
+                $("#city" + i).text(data.apartments[i].city);
+                $("#state" + i).text(data.apartments[i].state);
+                $("#price" + i).text("$" + data.apartments[i].price);
+			}
+		//$('<div>'+apartment[0].price +'</div>').appendTo($('body'));
+		// document.write(data['apartments']);
+		// document.write(data[0].name)
+		});
+        
+        $("#popu").css("background","gold");
+        $("#price").css("background","white");
+	});
+}
+
+
+function price() {
+	$(function(){
+		$.getJSON( "./apartment.json", function( data ) {
+		console.log(data);
+		
+
+		data.apartments.sort(function(a,b) {
+			return parseFloat(b.price) - parseFloat(a.price);
+		});
+
+		var i;
+			for(i = 0; i < data.apartments.length;i++) {
+				$("#name" + i).text(data.apartments[i].name);
+                $("#name" + i).attr("href","details/" + data.apartments[i].name + ".html");
+                $("#img" + i).attr("src",data.apartments[i].image);
+                $("#city" + i).text(data.apartments[i].city);
+                $("#state" + i).text(data.apartments[i].state);
+                $("#price" + i).text("$" + data.apartments[i].price);
+			}
+		//$('<div>'+apartment[0].price +'</div>').appendTo($('body'));
+		// document.write(data['apartments']);
+		// document.write(data[0].name)
+		});
+        
+        $("#price").css("background","gold");
+        $("#popu").css("background","white");
+	});
+}
+
+function show() {
+	$(function(){
+		$.getJSON("./apartment.json", function( data ) {
+			var i;
+			for(i = 0; (i < i+5) && (i < data.apartments.length);i++) {
+				$("#name" + i).text(data.apartments[i].name);
+                $("#name" + i).attr("href","details/" + data.apartments[i].name + ".html");
+                $("#img" + i).attr("src",data.apartments[i].image);
+                $("#city" + i).text(data.apartments[i].city);
+                $("#state" + i).text(data.apartments[i].state);
+                $("#price" + i).text("$" + data.apartments[i].price);
+                
+			}
+		})
+	});
+}
+
+</script>
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

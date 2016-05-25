@@ -1,0 +1,102 @@
+{
+    "apartments": [
+        {
+        	"name": "The Pavilion on Berry",
+        	"image": "images/image-0.jpg",
+        	"price": 512,
+        	"popularity": 12,
+        	"city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {        	
+        	"name": "Radius @15th",
+        	"image": "images/image-1.jpg",
+        	"price": 492,
+        	"popularity": 10,
+        	"city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+
+        	"name": "416 Lofts",
+        	"image": "images/image-2.jpg",
+        	"price": 460,
+        	"popularity": 3,
+        	"city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+
+        	"name": "Edge on Oak",
+        	"image": "images/image-3.jpg",
+        	"price": 532,
+        	"popularity": 7,
+        	"city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "Venue at Dinkytown",
+            "image": "images/image-4.jpg",
+            "price": 560,
+            "popularity": 11,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "Station on Washington",
+            "image": "images/image-5.jpg",
+            "price": 499,
+            "popularity": 2,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "GrandMarc Seven Corners",
+            "image": "images/image-6.jpg",
+            "price": 439,
+            "popularity": 1,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "University Commons",
+            "image": "images/image-7.jpg",
+            "price": 419,
+            "popularity": 8,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "University Village",
+            "image": "images/image-8.jpg",
+            "price": 499,
+            "popularity": 5,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "Keeler Apartments",
+            "image": "images/image-9.jpg",
+            "price": 699,
+            "popularity": 9,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "The Lyric at Carleton Place",
+            "image": "images/image-10.jpg",
+            "price": 1125,
+            "popularity": 6,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        },
+        {
+            "name": "7 West",
+            "image": "images/image-11.jpg",
+            "price": 1630,
+            "popularity": 4,
+            "city": "University of Minnesota, Twin Cities",
+            "state": "Minneapolis, MN"
+        }
+    ]
+}
